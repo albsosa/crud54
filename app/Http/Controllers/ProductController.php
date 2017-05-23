@@ -12,4 +12,15 @@ class ProductController extends Controller
     	return view('products.index', compact('products'));
 
     }
+
+    public function show($id){
+    	$product= product::find($id);
+    	return view('products.show', compact('product'));
+    }
+
+    public function destroy($id){
+    	$product= product::find($id);
+    	$product->delete();
+    	return back()->with('info', 'El producto fue eliminado...');
+    }
 }

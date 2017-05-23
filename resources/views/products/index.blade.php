@@ -19,9 +19,12 @@
 			<tr>
 			<td>{!!$product->id!!}</td>
 			<td><strong>{!!$product->name!!}</strong> {!! $product->short!!}</td>
-			<td>Ver</td>
-			<td>Editar</td>
-			<td>Eliminar</td>
+			<td><a href="{{route('products.show',    $product->id)}}" class="btn btn-success btn-md">Ver</a></td>
+			<td><a href="{{route('products.edit',    $product->id)}}" class="btn btn-warning btn-md">Editar</a></td>
+			<td>{!!Form::open(['route'=> ['products.destroy', $product->id], 'method'=>'DELETE'])!!}
+				{!!Form::submit('Eliminar',['class'=>'btn btn-danger btn-md'])!!}
+				{!!Form::close()!!}
+			</td>
 			</tr>
 
 			@endforeach
