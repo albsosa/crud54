@@ -18,9 +18,18 @@ class ProductController extends Controller
     	return view('products.show', compact('product'));
     }
 
+     public function edit($id){
+        $product= product::find($id);
+        return view('products.edit', compact('product'));
+    }
+      public function create(){
+        return view('products.create');
+    }
+
     public function destroy($id){
     	$product= product::find($id);
     	$product->delete();
     	return back()->with('info', 'El producto fue eliminado...');
     }
 }
+ 

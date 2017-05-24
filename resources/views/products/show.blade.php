@@ -13,7 +13,7 @@
 
 
 <div class="col-sm-4">
-	Mensaje
+	@include('products.fracment.aside')
 </div>
 
 @endsection
