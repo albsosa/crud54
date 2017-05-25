@@ -42,10 +42,15 @@ public function store(ProductRequest $request)
         return view('products.edit', compact('product'));
     }
 
-        public function update(ProductRequest $request, $id)
-        {
-
-        }
+    public function update(ProductRequest $request, $id)
+    {
+        $product = \crud54\product::find($id);
+        $product->name  = $request->name;
+        $product->short = $request->short;
+        $product->body  = $request->body;
+        $product->save();
+        return redirect()->route('products.index')->with('info', 'El producto fue Actualizado...');
+    }
 
     public function destroy($id){
     	$product= \crud54\product::find($id);
