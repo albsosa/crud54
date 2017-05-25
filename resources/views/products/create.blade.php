@@ -6,6 +6,8 @@
 	<h2>Crear Producto
 		<a href="{{route('products.index')}}" class="btn btn-default pull-right">Listado</a>
 	</h2>
+@include('products.fracment.error')
+
 	{!! Form::open(['route' => 'products.store']) !!}
 	@include('products.fracment.form')
 	{!! Form::close()!!}
